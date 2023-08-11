@@ -64,16 +64,17 @@ router.route('/').post(async (req, res) => {
     }
 })*/
 
-router.route('/:id').post(async (req, res) => {
+router.route('/:id').put(async (req, res) => {
     try {
         const post = await Post.findById(req.params.id);
-        
+
         post.likes += 1;
         await post.save();
+        console.log(post)
 
         res.status(200).json({ success: true, message: 'Post liked successfully!' })
     } catch (error) {
-        res.status(500).json({ message: error.message });
+        res.status(500).json({ success: false, message: error });
     }
 })
 

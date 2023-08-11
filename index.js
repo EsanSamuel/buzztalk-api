@@ -8,6 +8,7 @@ import LoginRoute from './routes/LoginRoute.js'
 import CommentRoute from './routes/CommentRoute.js'
 import { Server } from 'socket.io'
 import http from 'http'
+import bodyParser from 'body-parser'
 
 dotenv.config()
 
@@ -21,6 +22,8 @@ const io = new Server(server, {
 })
 app.use(cors())
 app.use(express.json({ limit: '50mb' }))
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api/v1/post', postRoutes)
 app.use('/api/v1/register', RegisterRoute)
