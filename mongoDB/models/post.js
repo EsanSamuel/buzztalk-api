@@ -8,7 +8,7 @@ const Post = new mongoose.Schema({
     image: { type: String, required: true },
     ProfileImage: { type: String, required: true },
     //likes: [{ type: ObjectId, ref: 'User' }],
-    likes: Number,
+    like: Number,
 })
 
 const PostSchema = mongoose.model('Post', Post)

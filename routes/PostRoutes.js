@@ -4,7 +4,6 @@ import { v2 as cloudinary } from 'cloudinary'
 import cors from 'cors'
 
 import Post from '../mongoDB/models/post.js'
-import Comment from '../mongoDB/models/comment.js'
 
 dotenv.config()
 
@@ -39,7 +38,7 @@ router.route('/').post(async (req, res) => {
             name,
             details,
             image: photoUrl.url,
-            ProfileImage: ProfileUrl.url
+            ProfileImage: ProfileUrl.url,
 
         })
 
@@ -64,11 +63,11 @@ router.route('/').post(async (req, res) => {
     }
 })*/
 
-router.route('/:id').put(async (req, res) => {
+router.route('/:id').post(async (req, res) => {
     try {
         const post = await Post.findById(req.params.id);
 
-        post.likes += 1;
+        post.like += 1;
         await post.save();
         console.log(post)
 
