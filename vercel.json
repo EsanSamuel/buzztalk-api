@@ -1,8 +1,6 @@
 {
     "version": 2,
-    "framework": "node",
-    "buildCommand": "cd server && npm install && npm start"
-    "build": [
+    "rewrites": [
         {
             "src": "index.js",
             "use": "@vercel/node"
