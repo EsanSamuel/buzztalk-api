@@ -1,6 +1,7 @@
 {
     "version": 2,
     "framework": "node",
+    "buildCommand": "cd server && npm install && npm run build"
     "build": [
         {
             "src": "index.js",
