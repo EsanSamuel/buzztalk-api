@@ -3,13 +3,7 @@
     "rewrites": [
         {
             "source": "index.js",
-            "use": "@vercel/node"
-        }
-    ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "/"
+            "destination": "/"
         }
     ]
 }
